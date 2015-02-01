@@ -1,1 +1,1 @@
-include ':app', ':dexpageradapterlib'
+include  ':dexpageradapterlib',':dexpageradaptersample'

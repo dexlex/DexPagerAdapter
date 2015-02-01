@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DexPagerAdapter.iml" filepath="$PROJECT_DIR$/DexPagerAdapter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/dexpageradapterlib/dexpageradapterlib.iml" filepath="$PROJECT_DIR$/dexpageradapterlib/dexpageradapterlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dexpageradaptersample/dexpageradaptersample.iml" filepath="$PROJECT_DIR$/dexpageradaptersample/dexpageradaptersample.iml" />
     </modules>
   </component>
 </project>
