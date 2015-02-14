@@ -1,21 +1,12 @@
-# ![Logo](/assets/images/dmiv.png) exPagerAdapter
+# ![Logo](/assets/images/dpa.png) exPagerAdapter
 
-DPA aims to provide a flexible and customizable
-
-![Screenshot](/assets/images/dpa_screenshot.gif)
+DPA aims to provide a flexible and customizable instrument for automated updated of adjacent instantiated view or fragment for a ViewPager Adapter.
 
 # Features
  * Android 1.5+ support
 
 # Downloads
 [![Demo app](assets/images/android-app-on-google-play.png)](https://play.google.com/store/apps/details?id=it.dex.dexpageradapter)
-
-![Screenshot](/assets/screenshot/home.png)
-![Screenshot](/assets/screenshot/grid.png)
-![Screenshot](/assets/screenshot/menu.png)
-![Screenshot](/assets/screenshot/scroll.png)
-![Screenshot](/assets/screenshot/move_tester.png)
-![Screenshot](/assets/screenshot/move_tester_open.png)
 
 # Setup
 
