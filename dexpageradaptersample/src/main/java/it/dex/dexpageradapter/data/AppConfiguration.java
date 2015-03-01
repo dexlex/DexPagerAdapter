@@ -28,7 +28,8 @@ public class AppConfiguration {
 
     private AppConfiguration() {
         sections.add(new Section("DexPagerAdapter"));
-        sections.add(new Section("Color Changer", Section.SECTION_TYPE.SUBSECTION, Section.SECTIONS.ADDER));
+        sections.add(new Section("DexFragmentPagerAdapter", Section.SECTION_TYPE.SUBSECTION, Section.SECTIONS.FRAGMENT_STATE_PAGER_ADAPTER));
+        sections.add(new Section("DexPagerAdapter", Section.SECTION_TYPE.SUBSECTION, Section.SECTIONS.PAGER_ADAPTER));
     }
 
     public static AppConfiguration get() {

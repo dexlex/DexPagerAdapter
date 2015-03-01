@@ -1,4 +1,4 @@
-# ![Logo](/assets/images/dpa.png) exPagerAdapter
+# ![Logo](/assets/images/dpa.png) DexPagerAdapter
 
 DPA aims to provide a flexible and customizable instrument for automated updated of adjacent instantiated view or fragment for a ViewPager Adapter.
 

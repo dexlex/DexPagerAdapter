@@ -14,11 +14,15 @@ import it.dex.dexpageradapter.R;
  */
 public class ItemFragment extends Fragment {
     public static final String PAGE_ARG = "pageArg";
+    public static final String TENS_ARG = "tensArg";
     private TextView textView;
+    private int tens;
+    private int page;
 
-    public static ItemFragment newInstance(int page) {
+    public static ItemFragment newInstance(int page, int tens) {
         Bundle bundle = new Bundle();
         bundle.putInt(PAGE_ARG, page);
+        bundle.putInt(TENS_ARG, tens);
         ItemFragment fragment = new ItemFragment();
         fragment.setArguments(bundle);
         return fragment;
@@ -33,10 +37,17 @@ public class ItemFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         textView = (TextView) view.findViewById(R.id.text_view);
-        textView.setText("" + getArguments().getInt(PAGE_ARG));
+        page = getArguments().getInt(PAGE_ARG);
+        tens = getArguments().getInt(TENS_ARG);
+        setText(tens);
     }
 
-    public void setBackgroundColor(int color) {
-        textView.setBackgroundColor(color);
+    public void setTens(int tens) {
+        this.tens = tens;
+        setText(tens);
+    }
+
+    public void setText(int tens) {
+        textView.setText(tens * 10 + page + "");
     }
 }

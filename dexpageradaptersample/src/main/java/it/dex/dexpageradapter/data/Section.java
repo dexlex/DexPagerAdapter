@@ -77,6 +77,6 @@ public class Section implements Serializable {
     }
 
     public enum SECTIONS {
-        ADDER
+        FRAGMENT_STATE_PAGER_ADAPTER, PAGER_ADAPTER
     }
 }

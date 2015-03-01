@@ -33,7 +33,7 @@ public abstract class DexPagerAdapter extends PagerAdapter implements  DexPageGr
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object view) {
-        ((ViewPager) container).removeView((View) view);
+        container.removeView((View) view);
         viewSparseArray.remove(position);
     }
 

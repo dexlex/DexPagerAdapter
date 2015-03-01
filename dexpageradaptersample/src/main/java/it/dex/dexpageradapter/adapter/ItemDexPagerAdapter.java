@@ -1,34 +1,31 @@
 package it.dex.dexpageradapter.adapter;
 
-import android.graphics.Color;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
 
-import it.dex.dexpageradapter.fragments.ItemFragment;
-import it.dex.dexpageradapterlib.DexFragmentPagerAdapter;
+import it.dex.dexpageradapter.R;
+import it.dex.dexpageradapterlib.DexPagerAdapter;
 
 /**
  * Created by Diego on 29/11/2014.
  */
-public class ItemDexPagerAdapter extends DexFragmentPagerAdapter {
-    public ItemDexPagerAdapter(FragmentManager fm) {
-        super(fm);
+public class ItemDexPagerAdapter extends DexPagerAdapter implements TensManager{
+    private int tens;
+
+    @Override
+    public View getView(int position, ViewPager viewPager) {
+        View view = LayoutInflater.from(viewPager.getContext()).inflate(R.layout.fragment_item, null);
+        TextView text = (TextView) view.findViewById(R.id.text_view);
+        text.setText(tens * 10 + position + "");
+        return view;
     }
 
     @Override
-    public Fragment getFragment(int position) {
-        return ItemFragment.newInstance(position);
-    }
-
-    @Override
-    public void updateAddedItems(Fragment fragment, int position) {
-        ItemFragment itemFragment = (ItemFragment) fragment;
-        itemFragment.setBackgroundColor(Color.RED);
-    }
-
-    @Override
-    public int getCount() {
-        return 10;
+    public void updateAddedItems(View view, int position) {
+        TextView text = (TextView) view.findViewById(R.id.text_view);
+        text.setText(tens * 10 + position + "");
     }
 
     @Override
@@ -36,5 +33,18 @@ public class ItemDexPagerAdapter extends DexFragmentPagerAdapter {
         return "Page " + position;
     }
 
+    @Override
+    public int getCount() {
+        return 10;
+    }
 
+    public void addTen() {
+        tens++;
+        notifyDataSetChanged();
+    }
+
+    public void removeTen() {
+        tens--;
+        notifyDataSetChanged();
+    }
 }

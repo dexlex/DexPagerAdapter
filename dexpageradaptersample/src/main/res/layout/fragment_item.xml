@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:gravity="center"
     android:id="@+id/text_view"
-    android:layout_height="match_parent" android:textColor="@color/accent"
+    android:layout_height="match_parent"
+    android:textColor="@color/secondary"
     android:textSize="@dimen/text_item">
 
 </TextView>

@@ -9,18 +9,18 @@ import android.view.ViewGroup;
 /**
  * Created by Diego on 29/11/2014.
  */
-public abstract class DexFragmentStatePagerAdapter extends FragmentStatePagerAdapter implements DexFragmentGrabber{
-    private SparseArray<Fragment> fragmentSparseArray = new SparseArray<Fragment>();
+public abstract class DexFragmentStatePagerAdapter<T extends Fragment> extends FragmentStatePagerAdapter implements DexFragmentGrabber<T> {
+    private SparseArray<T> fragmentSparseArray = new SparseArray<>();
 
     public DexFragmentStatePagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
-    public abstract Fragment getFragment(int position);
+    public abstract T getFragment(int position);
 
     @Override
-    public Fragment getItem(int position) {
-        Fragment fragment = getFragment(position);
+    public T getItem(int position) {
+        T fragment = getFragment(position);
         fragmentSparseArray.put(position, fragment);
         return fragment;
     }
@@ -34,7 +34,7 @@ public abstract class DexFragmentStatePagerAdapter extends FragmentStatePagerAda
     public void updateAddedItems() {
         for (int i = 0; i < fragmentSparseArray.size(); i++) {
             int key = fragmentSparseArray.keyAt(i);
-            updateAddedItems(fragmentSparseArray.get(key), key);
+            updateAddedItems(fragmentSparseArray.get(key), i);
         }
     }
 
