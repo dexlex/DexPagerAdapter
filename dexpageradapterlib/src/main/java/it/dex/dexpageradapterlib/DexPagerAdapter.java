@@ -6,9 +6,6 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by Diego on 29/11/2014.
  */
@@ -27,20 +24,20 @@ public abstract class DexPagerAdapter extends PagerAdapter implements  DexPageGr
         ViewPager pager = (ViewPager) container;
         View view = getView(position, pager);
         pager.addView(view);
-        viewSparseArray.put(position, view);
+        getViewSparseArray().put(position, view);
         return view;
     }
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object view) {
         container.removeView((View) view);
-        viewSparseArray.remove(position);
+        getViewSparseArray().remove(position);
     }
 
     public void updateAddedItems() {
-        for (int i = 0; i < viewSparseArray.size(); i++) {
-            int key = viewSparseArray.keyAt(i);
-            updateAddedItems(viewSparseArray.get(key), key);
+        for (int i = 0; i < getViewSparseArray().size(); i++) {
+            int key = getViewSparseArray().keyAt(i);
+            updateAddedItems(getViewSparseArray().get(key), key);
         }
     }
 
@@ -48,5 +45,13 @@ public abstract class DexPagerAdapter extends PagerAdapter implements  DexPageGr
     public void notifyDataSetChanged() {
         super.notifyDataSetChanged();
         updateAddedItems();
+    }
+
+    public SparseArray<View> getViewSparseArray() {
+        return viewSparseArray;
+    }
+
+    public void setViewSparseArray(SparseArray<View> viewSparseArray) {
+        this.viewSparseArray = viewSparseArray;
     }
 }

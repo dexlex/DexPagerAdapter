@@ -21,20 +21,20 @@ public abstract class DexFragmentStatePagerAdapter<T extends Fragment> extends F
     @Override
     public T getItem(int position) {
         T fragment = getFragment(position);
-        fragmentSparseArray.put(position, fragment);
+        getFragmentSparseArray().put(position, fragment);
         return fragment;
     }
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        fragmentSparseArray.remove(position);
+        getFragmentSparseArray().remove(position);
         super.destroyItem(container, position, object);
     }
 
     public void updateAddedItems() {
-        for (int i = 0; i < fragmentSparseArray.size(); i++) {
-            int key = fragmentSparseArray.keyAt(i);
-            updateAddedItems(fragmentSparseArray.get(key), i);
+        for (int i = 0; i < getFragmentSparseArray().size(); i++) {
+            int key = getFragmentSparseArray().keyAt(i);
+            updateAddedItems(getFragmentSparseArray().get(key), i);
         }
     }
 
@@ -42,5 +42,13 @@ public abstract class DexFragmentStatePagerAdapter<T extends Fragment> extends F
     public void notifyDataSetChanged() {
         super.notifyDataSetChanged();
         updateAddedItems();
+    }
+
+    public SparseArray<T> getFragmentSparseArray() {
+        return fragmentSparseArray;
+    }
+
+    public void setFragmentSparseArray(SparseArray<T> fragmentSparseArray) {
+        this.fragmentSparseArray = fragmentSparseArray;
     }
 }
